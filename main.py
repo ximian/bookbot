@@ -5,15 +5,17 @@ def main():
         print("Usage: python3 main.py <path_to_book>")
         sys.exit(1)
     else:
-        print("--- Begin report of "+sys.argv[1]+" ---")
-        dict_fran = countChars(sys.argv[1])
+        path_to_book = sys.argv[1]
+        #path_to_book = 'books/frankenstein.txt'
+        print("--- Begin report of "+path_to_book+" ---")
+        dict_fran = countChars(path_to_book)
         char_list_fran = char_count_sort(dict_fran)
 
-        print(str(get_num_words(sys.argv[1])) + " words found in the document\n")
+        print("Found " + str(get_num_words(path_to_book)) + " total words\n")
 
         for i in char_list_fran:
             #print("The '"+str(i["letter"])+"' character was found "+str(i["num"])+" times")
-            print(str(i["letter"])+": "+str(i["num"]))
+            print("('"+str(i["letter"])+"', "+str(i["num"])+")")
     
         print("--- End report ---")
 
